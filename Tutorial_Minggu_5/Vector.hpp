@@ -29,7 +29,7 @@ public:
         delete[] this->elements;
     }
 
-    T& operator[](T idx) {
+    T& operator[](int idx) {
         return this->elements[idx];
     }
 
