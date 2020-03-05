@@ -13,9 +13,6 @@ private:
 public:
     Vector() {
         this->elements = new T[N];
-        for (int i = 0; i < N; i++) {
-            this->elements[i] = 0;
-        }
     }
 
     Vector(const Vector<T, N>& other) {
@@ -51,14 +48,16 @@ public:
 
     bool operator<(const Vector<T, N>& other) {
         for (int i = 0; i < N; i++) {
-            if (elements[i] < other.elements[i]) return true;
+            if (elements[i] != other.elements[i])
+                return elements[i] < other.elements[i];
         }
         return false;
     }
 
     bool operator>(const Vector<T, N>& other) {
         for (int i = 0; i < N; i++) {
-            if (elements[i] > other.elements[i]) return true;
+            if (elements[i] != other.elements[i])
+                return elements[i] > other.elements[i];
         }
         return false;
     }
